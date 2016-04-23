@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160423040231) do
+ActiveRecord::Schema.define(version: 20160423070812) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,9 +26,10 @@ ActiveRecord::Schema.define(version: 20160423040231) do
   add_index "monster_teams", ["user_id"], name: "index_monster_teams_on_user_id", using: :btree
 
   create_table "monster_types", force: :cascade do |t|
-    t.string   "name",       default: ""
+    t.string   "name",          default: ""
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "over_power_id"
   end
 
   create_table "monsters", force: :cascade do |t|
