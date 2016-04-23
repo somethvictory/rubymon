@@ -1,0 +1,8 @@
+- if @monster.errors.any?
+  .alert.alert-danger
+    = @monster.errors.full_messages
+= simple_form_for @monster do |f|
+  = f.input :name
+  = f.input :power
+  = f.association :monster_type, include_blank: false
+  = f.button :submit, class: 'btn btn-primary'

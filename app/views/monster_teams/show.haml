@@ -1,0 +1,12 @@
+%h1 Monster Team Detail
+%table.table
+  %thead
+    %tr
+      %th Team Name
+      %th Monsters
+  %tbody
+    %tr
+      %td= @monster_team.name
+      %td= @monster_team.monsters.map(&:name).join(', ')
+
+= link_to 'Monster List', monster_teams_path, class: 'btn btn-primary'

@@ -1,0 +1,7 @@
+- if user_signed_in?
+  .monster-pages.text-center
+    = link_to 'Monster List', monsters_path, class: 'btn btn-primary'
+    = link_to 'Monster Team List', monster_teams_path, class: 'btn btn-primary'
+- else
+  .login.text-center
+    = link_to 'Sign in with facebook to create monsters', user_omniauth_authorize_path(:facebook), class: 'btn btn-primary'

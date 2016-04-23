@@ -1,0 +1,14 @@
+%h1 Monster Detail
+%table.table
+  %thead
+    %tr
+      %th Name
+      %th Power
+      %th Type
+  %tbody
+    %tr
+      %td= @monster.name
+      %td= @monster.power
+      %td= @monster.monster_type.name
+
+= link_to 'Monster List', monsters_path, class: 'btn btn-primary'

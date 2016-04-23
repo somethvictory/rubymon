@@ -1,0 +1,7 @@
+- if @monster_team.errors.any?
+  .alert.alert-danger
+    = @monster_team.errors.full_messages
+= simple_form_for @monster_team do |f|
+  = f.input :name
+  = f.association :monsters, collection: current_user.monsters, as: :check_boxes, include_blank: false
+  = f.button :submit, class: 'btn btn-primary'

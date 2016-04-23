@@ -1,0 +1,18 @@
+%h1 Monster Team List
+
+%table.table
+  %thead
+    %tr
+      %th Team Name
+      %th Monsters
+  %tbody
+    - @monster_teams.each do |monster_team|
+      %tr
+        %td= monster_team.name
+        %td= monster_team.monsters.map(&:name).join(', ')
+        %td
+          = link_to 'Edit', edit_monster_team_path(monster_team)
+        %td
+          = link_to 'Delete', monster_team_path(monster_team), method: :delete, data: { confirm: 'Are you sure you want to delete?' }
+
+= link_to 'New Monster Team', new_monster_team_path, class: 'btn btn-primary'

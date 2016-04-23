@@ -1,0 +1,30 @@
+%h1 Monster List
+%form{ action: monsters_path, method: :get }
+  .form-group
+    %label Sort By:
+    %select{ name: 'sort_by', class: 'form-control' }
+      %option{ value: 'name' } Name
+      %option{ value: 'power' } Power
+      %option{ value: 'weakness' } Weakness
+    %button{ type: :submit, class: 'btn btn-info' } Sort
+
+%table.table
+  %thead
+    %tr
+      %th Name
+      %th Power
+      %th Type
+      %th Actions
+  %tbody
+    - @monsters.each do |monster|
+      %tr
+        %td= monster.name
+        %td= monster.power
+        %td= monster.monster_type.name
+        %td
+          = link_to 'Edit', edit_monster_path(monster)
+        %td
+          = link_to 'Delete', monster_path(monster), method: :delete, data: { confirm: 'Are you sure you want to delete?' }
+
+= link_to 'New Monster', new_monster_path, class: 'btn btn-primary'
+= link_to 'New Monster Team', new_monster_team_path, class: 'btn btn-primary'
